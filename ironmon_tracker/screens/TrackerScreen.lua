@@ -613,7 +613,9 @@ function TrackerScreen.drawPokemonInfoArea(pokemon)
 		Drawing.drawStatusIcon(MiscData.StatusCodeMap[pokemon.status], Constants.SCREEN.WIDTH + Constants.SCREEN.MARGIN + 30 - 16 + 1, Constants.SCREEN.MARGIN + 1)
 	end
 
+
 	-- HELD ITEM AND ABILITIES
+	-- Players can no longer see abilities of wild Pokemon, prevents random freezes
 	local abilityStringTop = Constants.BLANKLINE
 	local abilityStringBot = Constants.BLANKLINE
 	local trackedAbilities = Tracker.getAbilities(pokemon.pokemonID)
@@ -623,9 +625,6 @@ function TrackerScreen.drawPokemonInfoArea(pokemon)
 			abilityStringTop = MiscData.Items[pokemon.heldItem]
 		end
 		local abilityId = PokemonData.getAbilityId(pokemon.pokemonID, pokemon.abilityNum)
-		if abilityId ~= nil and abilityId ~= 0 then
-			abilityStringBot = AbilityData.Abilities[abilityId].name
-		end
 	else
 		if trackedAbilities[1].id ~= nil and trackedAbilities[1].id ~= 0 then
 			abilityStringTop = AbilityData.Abilities[trackedAbilities[1].id].name .. " /"

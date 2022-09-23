@@ -203,7 +203,7 @@ end
 
 function Program.updatePokemonTeams()
 	-- Check for updates to each pokemon team
-	local addressOffset = 0
+	local addressOffset = 16 -- Offset added to account for perish song change.
 
 	-- Check if it's a new game (no Pokémon yet)
 	if not Tracker.Data.isNewGame and Tracker.Data.ownTeam[1] == 0 then
