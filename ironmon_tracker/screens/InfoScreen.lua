@@ -342,12 +342,7 @@ function InfoScreen.openPokemonInfoWindow()
 	Utils.setFormLocation(pokedexLookup, 100, 50)
 
 	local pokemonName = PokemonData.Pokemon[InfoScreen.infoLookup].name -- infoLookup = pokemonID
-	local pokedexData = {}
-	for _, data in pairs(PokemonData.Pokemon) do
-		if data.bst ~= Constants.BLANKLINE then
-			table.insert(pokedexData, data.name)
-		end
-	end
+	local pokedexData = PokemonData.toList()
 
 	forms.label(pokedexLookup, "Choose a Pokemon to look up:", 49, 10, 250, 20)
 	local pokedexDropdown = forms.dropdown(pokedexLookup, {["Init"]="Loading Pokedex"}, 50, 30, 145, 30)
@@ -358,14 +353,7 @@ function InfoScreen.openPokemonInfoWindow()
 
 	forms.button(pokedexLookup, "Look up", function()
 		local pokemonNameFromForm = forms.gettext(pokedexDropdown)
-		local pokemonId
-
-		for id, data in pairs(PokemonData.Pokemon) do
-			if data.name == pokemonNameFromForm then
-				pokemonId = id
-				break
-			end
-		end
+		local pokemonId = PokemonData.getIdFromName(pokemonNameFromForm)
 
 		if pokemonId ~= nil and pokemonId ~= 0 then
 			InfoScreen.infoLookup = pokemonId
@@ -776,10 +764,10 @@ function InfoScreen.drawMoveInfoScreen(moveId)
 		categoryInfo = Constants.HIDDEN_INFO
 	elseif moveCat == MoveData.Categories.PHYSICAL then
 		categoryInfo = "Physical"
-		Drawing.drawImageAsPixels(Constants.PixelImages.PHYSICAL, offsetColumnX + 36, offsetY + 2, Theme.COLORS["Default text"], boxInfoTopShadow)
+		Drawing.drawImageAsPixels(Constants.PixelImages.PHYSICAL, offsetColumnX + 36, offsetY + 2, { Theme.COLORS["Default text"] }, boxInfoTopShadow)
 	elseif moveCat == MoveData.Categories.SPECIAL then
 		categoryInfo = "Special"
-		Drawing.drawImageAsPixels(Constants.PixelImages.SPECIAL, offsetColumnX + 33, offsetY + 2, Theme.COLORS["Default text"], boxInfoTopShadow)
+		Drawing.drawImageAsPixels(Constants.PixelImages.SPECIAL, offsetColumnX + 33, offsetY + 2, { Theme.COLORS["Default text"] }, boxInfoTopShadow)
 	else
 		categoryInfo = Constants.BLANKLINE
 	end
@@ -945,7 +933,7 @@ function InfoScreen.drawRouteInfoScreen(mapId, encounterArea)
 
 	-- ROUTE NAME
 	local routeName = RouteData.Info[mapId].name or Constants.BLANKLINE
-	Drawing.drawImageAsPixels(Constants.PixelImages.MAP_PINDROP, boxX + 3, boxTopY + 3, Theme.COLORS["Default text"], boxTopShadow)
+	Drawing.drawImageAsPixels(Constants.PixelImages.MAP_PINDROP, boxX + 3, boxTopY + 3, { Theme.COLORS["Default text"] }, boxTopShadow)
 	Drawing.drawText(boxX + 13, boxTopY + 2, routeName, Theme.COLORS["Default text"], boxTopShadow)
 
 	Drawing.drawButton(InfoScreen.Buttons.showOriginalRoute, boxTopShadow)
