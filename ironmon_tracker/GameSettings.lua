@@ -1611,13 +1611,13 @@ function GameSettings.setGameAsFireRed(gameversion)
 		-- https://raw.githubusercontent.com/pret/pokefirered/symbols/pokefirered.sym
 		print("ROM Detected: Pokemon Fire Red v1.0")
 
-		GameSettings.gBaseStats = 0x08254784
-		GameSettings.gBattleMoves = 0x08250c04
-		GameSettings.sMonSummaryScreen = 0x0203b140
-		GameSettings.sStartMenuWindowId = 0x0203abe0
-		GameSettings.sSpecialFlags = 0x020370e0
-		GameSettings.sBattlerAbilities = 0x02039a30
-		GameSettings.sEvoStructPtr = 0x02039a20
+		GameSettings.gBaseStats = 0x08261224
+		GameSettings.gBattleMoves = 0x0825d6a4
+		GameSettings.sMonSummaryScreen = 0x0203b168
+		GameSettings.sStartMenuWindowId = 0x0203ac08
+		GameSettings.sSpecialFlags = 0x020370f8
+		GameSettings.sBattlerAbilities = 0x02039a58
+		GameSettings.sEvoStructPtr = 0x02039a48
 		GameSettings.gBattlerAttacker = 0x02023d6b
 		GameSettings.gBattlerTarget = 0x02023d6c
 		GameSettings.gBattlerPartyIndexes = 0x02023bce
