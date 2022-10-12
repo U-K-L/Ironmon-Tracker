@@ -1630,14 +1630,14 @@ function GameSettings.setGameAsFireRed(gameversion)
 		GameSettings.Task_EvolutionScene = 0x080ce8dd --Task_EvolutionScene + 0x1
 		GameSettings.BattleScript_FocusPunchSetUp = 0x081d9015 + 0x10
 		GameSettings.BattleScript_LearnMoveLoop = 0x081d8a11
-		GameSettings.BattleScript_LearnMoveReturn = 0x081d8a63
-		GameSettings.gMoveToLearn = 0x02024022
-		GameSettings.gBattleOutcome = 0x02023e8a
+		GameSettings.BattleScript_LearnMoveReturn = 0x081e5413
+		GameSettings.gMoveToLearn = 0x02024032
+		GameSettings.gBattleOutcome = 0x02023e9a
 		GameSettings.gMoveResultFlags = 0x02023dcc
-		GameSettings.gBattleWeather = 0x02023f1c
-		GameSettings.gBattleCommunication = 0x02023e82
+		GameSettings.gBattleWeather = 0x02023f2c
+		GameSettings.gBattleCommunication = 0x02023e92
 		GameSettings.gBattlersCount = 0x02023bcc
-		GameSettings.BattleScript_MoveUsedIsConfused = 0x081d90d6
+		GameSettings.BattleScript_MoveUsedIsConfused = 0x081e5a83
 		GameSettings.BattleScript_MoveUsedIsConfused2 = 0x081d90df
 		GameSettings.BattleScript_MoveUsedIsConfusedNoMore = 0x081d9119
 		GameSettings.BattleScript_MoveUsedIsInLove = 0x081d9140
@@ -1655,7 +1655,7 @@ function GameSettings.setGameAsFireRed(gameversion)
 		GameSettings.sBattleBuffersTransferData = 0x02022874
 		GameSettings.gBattleControllerExecFlags = 0x02023bc8
 
-		GameSettings.gMapHeader = 0x02036dfc
+		GameSettings.gMapHeader = 0x02036e14
 		GameSettings.gBattleTerrain = 0x02022b50
 		GameSettings.gBattleTypeFlags = 0x02022b4c
 		GameSettings.gSpecialVar_ItemId = 0x0203ad30 -- For fishing rod
@@ -1846,8 +1846,8 @@ function GameSettings.setGameAsFireRedItaly(gameversion)
 		GameSettings.FriendshipRequiredToEvo = 0x08042db0 + 0x13E -- GetEvolutionTargetSpecies (untested)
 
 		--the only diffrance looks like in here gSaveBlock1ptr and gSaveBlock2ptr
-		GameSettings.gSaveBlock1ptr = 0x03004F58
-		GameSettings.gSaveBlock2ptr = 0x03004F5C
+		GameSettings.gSaveBlock1ptr = 0x0300500c
+		GameSettings.gSaveBlock2ptr = 0x03005010
 		GameSettings.gameStatsOffset = 0x1200
 		GameSettings.gameVarsOffset = 0x1000
 		GameSettings.EncryptionKeyOffset = 0xF20

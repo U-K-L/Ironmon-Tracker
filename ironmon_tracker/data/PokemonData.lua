@@ -101,7 +101,7 @@ function PokemonData.readPokemonTypesFromMemory(pokemonID)
 end
 
 function PokemonData.readPokemonAbilitiesFromMemory(pokemonID)
-	local abilitiesData = Memory.readword(GameSettings.gBaseStats + (pokemonID * 0x1C) + 0x16)
+	local abilitiesData = Memory.readword(GameSettings.gBaseStats + (pokemonID * 0x1C) + 0x16) --126
 	local abilityIdOne = Utils.getbits(abilitiesData, 0, 8)
 	local abilityIdTwo = Utils.getbits(abilitiesData, 8, 8)
 
@@ -113,7 +113,7 @@ end
 
 function PokemonData.checkIfDataIsRandomized()
 	local areTypesRandomized = false
-	local areAbilitiesRandomized = false
+	local areAbilitiesRandomized = true
 
 	-- Check once if any data was randomized
 	local types = PokemonData.readPokemonTypesFromMemory(1) -- Bulbasaur
@@ -122,9 +122,9 @@ function PokemonData.checkIfDataIsRandomized()
 	if types ~= nil then
 		areTypesRandomized = types[1] ~= PokemonData.Types.GRASS or types[2] ~= PokemonData.Types.POISON
 	end
-	if abilities ~= nil then
-		areAbilitiesRandomized = abilities[1] ~= 65 or abilities[2] ~= 65 -- 65 = Overgrow
-	end
+	--if abilities ~= nil then
+	--	areAbilitiesRandomized = abilities[1] ~= 65 or abilities[2] ~= 65 -- 65 = Overgrow
+	--end
 
 	-- Check twice if any data was randomized (Randomizer does *not* force a change)
 	if not areTypesRandomized or not areAbilitiesRandomized then
@@ -134,9 +134,9 @@ function PokemonData.checkIfDataIsRandomized()
 		if types ~= nil and (types[1] ~= PokemonData.Types.WATER or types[2] ~= PokemonData.Types.ICE) then
 			areTypesRandomized = true
 		end
-		if abilities ~= nil and (abilities[1] ~= 11 or abilities[2] ~= 75) then -- 11 = Water Absorb, 75 = Shell Armor
-			areAbilitiesRandomized = true
-		end
+		--if abilities ~= nil and (abilities[1] ~= 11 or abilities[2] ~= 75) then -- 11 = Water Absorb, 75 = Shell Armor
+		--	areAbilitiesRandomized = true
+		--end
 	end
 
 	PokemonData.IsRand.pokemonTypes = areTypesRandomized
