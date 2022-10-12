@@ -1611,8 +1611,8 @@ function GameSettings.setGameAsFireRed(gameversion)
 		-- https://raw.githubusercontent.com/pret/pokefirered/symbols/pokefirered.sym
 		print("ROM Detected: Pokemon Fire Red v1.0")
 
-		GameSettings.gBaseStats = 0x08261224
-		GameSettings.gBattleMoves = 0x0825d6a4
+		GameSettings.gBaseStats = 0x08261248
+		GameSettings.gBattleMoves = 0x0825d6c8
 		GameSettings.sMonSummaryScreen = 0x0203b168
 		GameSettings.sStartMenuWindowId = 0x0203ac08
 		GameSettings.sSpecialFlags = 0x020370f8
@@ -1662,9 +1662,9 @@ function GameSettings.setGameAsFireRed(gameversion)
 		GameSettings.gSpecialVar_Result = 0x020370d0 -- For rock smash
 		GameSettings.FriendshipRequiredToEvo = 0x08042ec4 + 0x13E -- GetEvolutionTargetSpecies
 
-		GameSettings.gSaveBlock1 = 0x0202552c
-		GameSettings.gSaveBlock1ptr = 0x03005008
-		GameSettings.gSaveBlock2ptr = 0x0300500c
+		GameSettings.gSaveBlock1 = 0x0300500c
+		GameSettings.gSaveBlock1ptr = 0x0300500c
+		GameSettings.gSaveBlock2ptr = 0x03005010
 		GameSettings.gameStatsOffset = 0x1200
 		GameSettings.gameVarsOffset = 0x1000
 		GameSettings.EncryptionKeyOffset = 0xF20

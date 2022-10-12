@@ -280,16 +280,22 @@ function Battle.updateTrackedInfo()
 	end
 	--Don't track anything for Ghost opponents
 	if not Battle.isGhost then
+		-- multi line comment
+		--[[
 		local combatantIndexesToTrack = Battle.checkAbilitiesToTrack()
 		for _, indexToTrack in pairs(combatantIndexesToTrack) do
 			if indexToTrack >= 0 and indexToTrack < Battle.numBattlers then
-				local battleMon = Battle.BattleAbilities[indexToTrack % 2][Battle.Combatants[Battle.IndexMap[indexToTrack]]]
+						--]]
+
+				--local battleMon = Battle.BattleAbilities[indexToTrack % 2][Battle.Combatants[Battle.IndexMap[indexToTrack]]]
+		--[[
 				local abilityOwner = Tracker.getPokemon(battleMon.abilityOwner.slot,battleMon.abilityOwner.isOwn)
 				if abilityOwner ~= nil then
 					Tracker.TrackAbility(abilityOwner.pokemonID, battleMon.ability)
 				end
 			end
 		end
+		--]]
 		local otherLeftPokemon = Tracker.getPokemon(Battle.Combatants.LeftOther,false)
 		if otherLeftPokemon ~= nil then
 			Battle.updateStatStages(otherLeftPokemon, false)
